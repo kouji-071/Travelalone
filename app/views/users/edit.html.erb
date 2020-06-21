@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row">
+		<div style="color: white;">
+			<h2>プロフィール編集</h2>
+			<%= form_for(@user) do |f| %>
+			<h4>名前</h4>
+			<%= f.text_field :name, style:"color:black;" %>
+			<h4>メールアドレス</h4>
+			<%= f.text_field :email, style:"color:black;" %>
+			<h4>Image</h4>
+			<%= f.attachment_field :profile_image %>
+			<h4>Introduction</h4>
+			<%= f.text_field :introduction, style:"color:black;" %><br><br>
+			<%= f.submit '保存', class: "btn btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+

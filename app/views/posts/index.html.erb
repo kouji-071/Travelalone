@@ -1,0 +1,70 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<div style="color: white;">
+				<table class="table table-hover table-inverse">
+					<table style="table-layout: fixed; width: 100%">
+						<colgroup>
+							<col style= "width: 25%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>ユーザー</th>
+								<th>本文</th>
+								<th style="padding-left: 30px;">Place</th>
+								<th style="padding-left: 30px;">難易度</th>
+							</tr>
+						</thead>
+						<h1>投稿一覧</h1>
+						<% @posts.each do |post| %>
+						<tr>
+							<td style="text-align: center;">
+								<%= link_to user_path(post.user) do %>
+								<%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg", size:'60x60' %>
+								<%= post.user.name %>
+								<% end %>
+							</td>
+							<td style="word-wrap: break-word;">
+								<%= link_to post.body, post_path(post.id) %>
+							</td>
+							<td style="word-wrap: break-word; padding-left: 30px;">
+								<%= post.place_name %>
+							</td>
+							<td style="padding-left: 30px;">
+								<%= post.difficult %>
+							</td>
+							<td>
+								<%= post.post_comments.count %>件コメント
+							</td>
+							<td>
+							</td>
+						</tr>
+						<% end %>
+					</table>
+				</table>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<h1 style="color: white;">新規投稿</h1>
+
+			<%= form_for(@post, url: '/posts') do |f| %>
+
+			<h4 style="color: white;">本文</h4>
+			<%= f.text_area :body, style:"color:black;" %>
+
+			<h4 style="color: white;">画像</h4>
+			<%= f.attachment_field :post_image, style:"color:white;" %>
+
+			<h4 style="color: white;">Place</h4>
+			<%= f.text_area :place_name, style:"color:black;" %>
+
+			<h4 style="color: white;">難易度</h4>
+			<%= f.select :difficult, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください。", color: "black;" %><br><br>
+
+			<%= f.submit 'ツイート', class: "btn btn-primary" %>
+			
+
+			<% end %>
+		</div>
+	</div>
+</div>

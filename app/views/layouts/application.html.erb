@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Travelalone</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<header class="navbar navbar-fixed-top navbar-default" style="background-color: rgb(21, 32, 43);">
+	<div class="container">
+
+		<nav class="navbar navbar-nav left">
+			<a class="navbar-brand" href="#">
+				<span style="color: white;">Travelalone</span>
+			</a>
+		</nav>
+
+		<nav>
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+				<li><%= link_to ' Home', posts_path, class: "glyphicon glyphicon-home home" %></li>
+				<li><%= link_to ' User', user_path(current_user.id), class: "glyphicon glyphicon-user users" %></li>
+				<li><%= link_to ' logout', destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out logout" %></li>
+				<% else %>
+				<li><%= link_to ' Home', root_path, class: "glyphicon glyphicon-home home" %></li>
+				<li><%= link_to ' About', about_path, class: "glyphicon glyphicon-link about" %></li>
+				<li><%= link_to ' Sign up', new_user_registration_path, class: "glyphicon glyphicon-edit sign_up" %></li>
+				<li><%= link_to ' Login', new_user_session_path, class: "glyphicon glyphicon-log-in sign_in" %></li>
+				<% end %>
+			</ul>
+		</nav>
+	</div>
+</header>
+<body style="padding-top: 50px; background-color: rgb(21, 32, 43);">
+	<%= yield %>
+</body>
+</html>
