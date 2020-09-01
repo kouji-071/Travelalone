@@ -22,7 +22,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['Travelalone'] %>
+  database: <%= ENV['Travelalone_production'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4

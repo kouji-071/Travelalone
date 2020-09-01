@@ -89,6 +89,3 @@ group :production do
 end
 
 gem 'unicorn', '5.4.1'
-
-#デバック
-gem 'pry-byebug'
