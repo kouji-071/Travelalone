@@ -12,7 +12,11 @@
 					<tr></tr>
 					<tr>
 						<th>
-							<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+							<% if @user.profile_image.present? %>
+							<%= attachment_image_tag @user, :profile_image, size: "60x60", class: "img-circle pull-left profile-thumb" %>
+							<% else %>
+							<%= image_tag "no_image.jpg", size: '60x60', class: "img-circle pull-left profile-thumb" %>
+							<% end %>
 						</th>
 					</tr>
 					<tr>
