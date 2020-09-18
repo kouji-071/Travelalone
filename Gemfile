@@ -89,3 +89,7 @@ group :production do
 end
 
 gem 'unicorn', '5.4.1'
+
+group :production do
+  gem 'pg'
+end

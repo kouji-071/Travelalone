@@ -22,11 +22,6 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV['Travelalone_production'] %>
-  adapter: mysql2
-  encoding: utf8mb4
-  charset: utf8mb4
-  collation: utf8mb4_general_ci
-  host: <%= ENV['travelalone-mysql.cvz2aybckq6a.ap-northeast-1.rds.amazonaws.com'] %>
-  username: <%= ENV['root'] %>
-  password: <%= ENV['19950518'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
