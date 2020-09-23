@@ -9,14 +9,9 @@
 
 			<table class="table">
 				<tbody style="color: white;">
-					<tr></tr>
 					<tr>
 						<th>
-							<% if @user.profile_image.present? %>
-							<%= attachment_image_tag @user, :profile_image, size: "60x60", class: "img-circle pull-left profile-thumb" %>
-							<% else %>
-							<%= image_tag "no_image.jpg", size: '60x60', class: "img-circle pull-left profile-thumb" %>
-							<% end %>
+							<%= attachment_image_tag @user, :profile_image, size: "60x60", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
 						</th>
 					</tr>
 					<tr>
