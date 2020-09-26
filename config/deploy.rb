@@ -40,5 +40,5 @@ set :repo_url, "kouji_1995@yahoo.co.jp"
 
 set :deploy_to, "/home/ec2-user/travelalone"
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w{config/master.key .env}
+set :linked_files, %w(config/master.key .env)
 append :linked_dirs, "log", "public/system", "tmp"

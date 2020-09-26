@@ -12,11 +12,11 @@ module Travelalone
     config.load_defaults 5.2
 
     config.i18n.default_locale = :ja
-    
+
     config.time_zone = 'Tokyo'
 
     config.generators do |g|
-        g.test_framework :rspec
+      g.test_framework :rspec
     end
 
     # Settings in config/environments/* take precedence over those specified here.

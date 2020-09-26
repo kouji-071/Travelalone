@@ -51,13 +51,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+  # 静的コード解析
+  gem 'rubocop-airbnb'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
   gem 'webdrivers'
 end
 
@@ -71,7 +72,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: "manfe/refile"
 gem "refile-mini_magick"
 
-#　ブートストラップ
+# ブートストラップ
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
 

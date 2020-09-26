@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
   def show
-  	@user = User.find(params[:id])
-  	@posts = @user.posts
-  	@post = Post.new
+    @user = User.find(params[:id])
+    @posts = @user.posts
+    @post = Post.new
   end
 
   def edit
-  	@user = current_user
-  	if current_user != @user
-  		redirect_to user_path(current_user)
-  	end
+    @user = current_user
+    if current_user != @user
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -22,13 +22,14 @@ class UsersController < ApplicationController
   end
 
   def authenticate_user
-  	if session[:user.id] == nil
-  		redirect_to ("new_user_session_path")
-  	end
+    if session[:user.id].nil?
+      redirect_to "new_user_session_path"
+    end
   end
 
   private
+
   def user_params
-  	params.require(:user).permit(:name, :email, :introduction, :profile_image)
+    params.require(:user).permit(:name, :email, :introduction, :profile_image)
   end
 end
