@@ -1,0 +1,12 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+#rubocopでのコード解析したくないファイルやフォルダを指定します。
+AllCops:
+  Exclube:
+    - 'db'
+    - 'bin'
+    - 'config'
+    - 'lib'
+    - 'vendor'
+    - 'path/ruby'
