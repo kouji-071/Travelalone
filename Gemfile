@@ -86,11 +86,6 @@ gem 'rspec-rails'
 gem 'factory_bot_rails'
 
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
-
-gem 'unicorn', '5.4.1'
 
 group :production do
   gem 'pg', '0.20.0'
